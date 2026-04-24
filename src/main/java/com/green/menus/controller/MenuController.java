@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.green.menus.dto.MenuDTO;
 import com.green.menus.mapper.MenuMapper;
 
-@Controller
+@Controller 
 public class MenuController {
 	
 	@Autowired
@@ -41,7 +41,8 @@ public class MenuController {
 	// /Menus/Write
 	@RequestMapping("/Menus/Write")
 //	public String write( String menu_id, String menu_name, int menu_seq ) {
-	public String write( MenuDTO menuDTO ) { // MenuDTO.java 파일의 생성자 getter/setter Tostring 이용
+	public String write( MenuDTO menuDTO, Model model ) { 
+		// MenuDTO.java 파일의 생성자 getter/setter Tostring 이용 이유 값들을 다 정의하고있는 파일이 MenuDTO이기 때문
 		
 		// 넘어온 값 (테이블에서 추가한 자료)
 		System.out.println( "menu_id="   + menuDTO.getMenu_id() );
@@ -51,7 +52,13 @@ public class MenuController {
 		// DB에 저장
 		menuMapper.insertMenu( menuDTO ); // MenuDTO 의 menuDTO 라고 부여한 이름의 값을 넣는다
 		        // .insertMenu 는 MenuMapper.java에 연결됨
-		return "molla";
+		
+		// 다시 조회 -> menuList 
+		List<MenuDTO> menuList = menuMapper.getMenuList();
+		
+		model.addAttribute("menuList", menuList);
+		
+		return "menus/list";
 	}
 	
 }

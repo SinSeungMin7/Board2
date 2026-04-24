@@ -13,8 +13,10 @@ public class MenuDTO {
 		this.menu_name = menu_name;
 		this.menu_seq = menu_seq;
 	}
-	
-	//Getter/Setter
+	 
+	//Getter/Setter   menu_id -> get Menu_id () 
+	               // menu_Id -> get Menu_Id ()
+	// 칼럼이름과 동일한것을 가져가서 넣어주면 내가 등록한걸로 알아서 바꿔준다  ex) 현재는 return menu_id, getMenu_id 로
 	public String getMenu_id() {
 		return menu_id;
 	}
