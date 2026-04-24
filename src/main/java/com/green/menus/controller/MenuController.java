@@ -21,7 +21,7 @@ public class MenuController {
 	public   String   list( Model model  ) {
 		// 조회한결과를 ArrayList 로 돌려준디
 		List<MenuDTO> menuList = menuMapper.getMenuList(); // ArrayList 결과를받는다
-		System.out.println(menuList);
+		System.out.println(menuList); 
 		
 		model.addAttribute("msg", "하하");
 		model.addAttribute("menuList", menuList);
