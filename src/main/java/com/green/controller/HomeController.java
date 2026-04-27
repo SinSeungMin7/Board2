@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 	
-	// http://localhost:8080
+	// http://localhost:8080  -> "/" 주소와 동일하다
 	@RequestMapping("/")
 	public  String  home( ) {
 		System.out.println("첫페이지");
